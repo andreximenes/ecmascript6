@@ -1,1 +1,1 @@
-"# ecmascript6" 
+# ecmascript6
