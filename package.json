@@ -4,12 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib --source-maps"
+    "bundle-js": "browserify lib/hello.js > static/hello.js",
+    "build-js": "babel src -d lib --source-maps",
+    "build": "npm run build-js && npm run bundle-js"
   },
+  "keywords": [
+    "es6",
+    "es2015",
+    "demo"
+  ],
   "author": "André Ximenes",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-preset-es2015": "^6.24.1",
+    "browserify": "^16.2.0"
   }
 }
