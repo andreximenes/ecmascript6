@@ -1,19 +1,35 @@
+const defaultLine = "Start your journey now!";
+const BR = "<br />";
+const print = (...args) => console.log(args[0] + ":"+ args[1]);
+
+var options = {
+    _intro: "You can type",
+    _option: ["left", "right", "up", "down", "help"],
+    outputOptionss () {
+        this._option.forEach(f => addToOutput(this._intro + " " + f ));
+    } 
+}
+
 function main() {
-    var enterEl = document.querySelector("#enter");
+    let enterEl = document.querySelector("#enter");
     enterEl.addEventListener("click", onClickEnter, false);
     addToOutput();
 }
 
-function addToOutput(newLine="Start your journey now!"){
-    var output = document.querySelector("#output");
-    output.innerHTML = output.innerHTML + "<br />" + newLine;
+function addToOutput(newLine=defaultLine) {
+    let output = document.querySelector("#output");
+    output.innerHTML = output.innerHTML + BR + newLine;
 }
 
 function onClickEnter() {
-    var commands = document.querySelector("#commands");
-    addToOutput(commands.value);
+    let commands = document.querySelector("#commands");
+    if(commands.value == "help"){
+        options.outputOptionss();
+    } else {
+        addToOutput(commands.value);
+    }
 }
 
 main();
 
-console.log("hello");
+print("log", "hello");
